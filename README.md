@@ -26,18 +26,18 @@ Understanding this data can help gaming companies identify players who may be at
 
 The main objectives of this project are:
 
-- Analyze player behavioral and telemetry data.
-- Clean and preprocess raw gaming data.
-- Remove irrelevant and constant features.
-- Engineer meaningful player engagement features.
-- Split data into training and testing sets.
-- Train multiple machine learning classification models.
-- Compare model performance.
-- Select the best-performing model.
-- Evaluate the final model using multiple metrics.
-- Build a reusable prediction pipeline.
-- Implement automated testing.
-- Maintain a modular and version-controlled ML repository.
+* Analyze player behavioral and telemetry data.
+* Clean and preprocess raw gaming data.
+* Remove irrelevant and constant features.
+* Engineer meaningful player engagement features.
+* Split data into training and testing sets.
+* Train multiple machine learning classification models.
+* Compare model performance.
+* Select the best-performing model.
+* Evaluate the final model using multiple metrics.
+* Build a reusable prediction pipeline.
+* Implement automated testing.
+* Maintain a modular and version-controlled ML repository.
 
 ---
 
@@ -51,10 +51,10 @@ The target variable is:
 
 The target contains two classes:
 
-| Value | Meaning |
-|---|---|
+| Value         | Meaning               |
+| ------------- | --------------------- |
 | `0` / `False` | Player is not churned |
-| `1` / `True` | Player is churned |
+| `1` / `True`  | Player is churned     |
 
 The model learns patterns from player behavior and predicts whether a player belongs to the churned class.
 
@@ -66,33 +66,33 @@ The project uses a player telemetry dataset containing behavioral information co
 
 ### Dataset Size
 
-- **2,096 player records**
-- **187 original features**
+* **2,096 player records**
+* **187 original features**
 
 The dataset contains information related to:
 
-- Player lifetime
-- Session activity
-- Stage activity
-- Recent gameplay behavior
-- Weekly activity
-- Monthly activity
-- Time-of-day gameplay patterns
-- Player cohort information
-- Player type
-- Churn status
+* Player lifetime
+* Session activity
+* Stage activity
+* Recent gameplay behavior
+* Weekly activity
+* Monthly activity
+* Time-of-day gameplay patterns
+* Player cohort information
+* Player type
+* Churn status
 
 ### Important Variables
 
 Some important variables include:
 
-- `player_id`
-- `cohort_id`
-- `cohort_day_of_week`
-- `player_type`
-- `player_lifetime`
-- `session_count`
-- `player_churn`
+* `player_id`
+* `cohort_id`
+* `cohort_day_of_week`
+* `player_type`
+* `player_lifetime`
+* `session_count`
+* `player_churn`
 
 along with historical session, stage, and time-of-day telemetry features.
 
@@ -102,10 +102,10 @@ along with historical session, stage, and time-of-day telemetry features.
 
 Initial analysis of the dataset showed:
 
-- Total records: **2,096**
-- Original features: **187**
-- Not churned: **1,174**
-- Churned: **922**
+* Total records: **2,096**
+* Original features: **187**
+* Not churned: **1,174**
+* Churned: **922**
 
 The target distribution is reasonably balanced, allowing us to train classification models without severe class imbalance.
 
@@ -183,9 +183,9 @@ During dataset analysis, `player_type` was found to have a very strong relations
 
 The `player_type` column contains categories such as:
 
-- `churner`
-- `casual`
-- `hardcore`
+* `churner`
+* `casual`
+* `hardcore`
 
 Because the `churner` category is directly associated with the churn outcome, using `player_type` as a model feature could introduce target leakage.
 
@@ -207,10 +207,10 @@ Used as a baseline classification model.
 
 Advantages:
 
-- Simple
-- Interpretable
-- Fast
-- Useful baseline for comparison
+* Simple
+* Interpretable
+* Fast
+* Useful baseline for comparison
 
 ### 2. Random Forest
 
@@ -218,10 +218,10 @@ An ensemble of decision trees.
 
 Advantages:
 
-- Handles nonlinear relationships
-- Works well with structured/tabular data
-- Robust to noisy features
-- Can capture complex feature interactions
+* Handles nonlinear relationships
+* Works well with structured/tabular data
+* Robust to noisy features
+* Can capture complex feature interactions
 
 ### 3. Gradient Boosting
 
@@ -229,9 +229,9 @@ An ensemble learning technique that builds models sequentially to correct previo
 
 Advantages:
 
-- Strong predictive performance
-- Captures nonlinear relationships
-- Effective for structured datasets
+* Strong predictive performance
+* Captures nonlinear relationships
+* Effective for structured datasets
 
 ---
 
@@ -271,10 +271,10 @@ Measures the model's ability to distinguish between churned and non-churned play
 
 Used to visualize:
 
-- True Positives
-- True Negatives
-- False Positives
-- False Negatives
+* True Positives
+* True Negatives
+* False Positives
+* False Negatives
 
 ---
 
@@ -282,28 +282,26 @@ Used to visualize:
 
 The GameSense AI pipeline follows this architecture:
 
-Player Telemetry  
-↓  
-Raw Dataset (CSV)  
-↓  
-Data Preprocessing  
-↓  
-Feature Engineering  
-↓  
-Train/Test Split  
-↓  
-Model Training  
-↓  
-Logistic Regression + Random Forest + Gradient Boosting  
-↓  
-Model Evaluation  
-↓  
-Best Performing Model  
-↓  
-Prediction Pipeline  
-↓  
-Churn Probability  
-↓  
+Player Telemetry
+↓
+Raw Dataset (CSV)
+↓
+Data Preprocessing
+↓
+Feature Engineering
+↓
+Train/Test Split
+↓
+Logistic Regression + Random Forest + Gradient Boosting
+↓
+Model Evaluation
+↓
+Best Performing Model
+↓
+Prediction Pipeline
+↓
+Churn Probability
+↓
 Low / Medium / High Risk
 
 ---
@@ -325,7 +323,7 @@ gamesense-ai/
 ├── notebooks/
 │
 ├── src/
-│   ├── __init__.py
+│   ├── **init**.py
 │   ├── data_preprocessing.py
 │   ├── feature_engineering.py
 │   ├── train.py
@@ -333,7 +331,7 @@ gamesense-ai/
 │   └── predict.py
 │
 ├── tests/
-│   ├── __init__.py
+│   ├── **init**.py
 │   └── test_preprocessing.py
 │
 ├── requirements.txt
@@ -366,10 +364,10 @@ Automated tests are included using `pytest`.
 
 The tests verify:
 
-- Dataset can be loaded.
-- Dataset is not empty.
-- Target variable exists.
-- Identifier columns are removed correctly.
+* Dataset can be loaded.
+* Dataset is not empty.
+* Target variable exists.
+* Identifier columns are removed correctly.
 
 Run the tests using:
 
@@ -407,14 +405,14 @@ On Windows PowerShell:
 
 The training pipeline will:
 
-- Load the dataset
-- Preprocess the data
-- Engineer features
-- Split training and testing data
-- Train multiple classification models
-- Compare model performance
-- Select the best model
-- Save model evaluation results
+* Load the dataset
+* Preprocess the data
+* Engineer features
+* Split training and testing data
+* Train multiple classification models
+* Compare model performance
+* Select the best model
+* Save model evaluation results
 
 ### 6. Evaluate the Best Model
 
@@ -422,9 +420,9 @@ The training pipeline will:
 
 This generates:
 
-- Classification report
-- Confusion matrix
-- Evaluation visualization
+* Classification report
+* Confusion matrix
+* Evaluation visualization
 
 ### 7. Run Automated Tests
 
@@ -440,21 +438,21 @@ GameSense AI can potentially be used by gaming companies for several application
 
 Identify players who are likely to stop playing.
 
-Player Behavior  
-↓  
-ML Model  
-↓  
-High Churn Risk  
-↓  
+Player Behavior
+↓
+ML Model
+↓
+High Churn Risk
+↓
 Retention Campaign
 
 Gaming companies could then provide targeted:
 
-- Rewards
-- Missions
-- Events
-- Bonuses
-- Personalized content
+* Rewards
+* Missions
+* Events
+* Bonuses
+* Personalized content
 
 ### 2. Personalized Player Experience
 
@@ -472,13 +470,13 @@ Churn predictions can help developers investigate whether certain gameplay patte
 
 The system could be incorporated into games with:
 
-- Seasonal content
-- Battle passes
-- Ranked systems
-- Live events
-- New maps
-- New characters
-- Continuous content updates
+* Seasonal content
+* Battle passes
+* Ranked systems
+* Live events
+* New maps
+* New characters
+* Continuous content updates
 
 ---
 
@@ -488,18 +486,18 @@ The current project provides the core machine learning pipeline.
 
 Future improvements could include:
 
-- Interactive Streamlit dashboard
-- SHAP-based model explainability
-- Player risk visualization
-- Real-time player prediction
-- Player segmentation using K-Means
-- Hyperparameter optimization
-- XGBoost model
-- MLflow experiment tracking
-- Automated model retraining
-- Docker deployment
-- REST API for predictions
-- Cloud deployment
+* Interactive Streamlit dashboard
+* SHAP-based model explainability
+* Player risk visualization
+* Real-time player prediction
+* Player segmentation using K-Means
+* Hyperparameter optimization
+* XGBoost model
+* MLflow experiment tracking
+* Automated model retraining
+* Docker deployment
+* REST API for predictions
+* Cloud deployment
 
 ---
 
@@ -507,15 +505,15 @@ Future improvements could include:
 
 A future version of the project can provide an interactive gaming analytics dashboard containing:
 
-- Total players
-- Churn rate
-- Average sessions
-- Player engagement trends
-- Churn risk distribution
-- Player activity
-- Individual player risk analysis
-- Churn probability
-- Model explanations
+* Total players
+* Churn rate
+* Average sessions
+* Player engagement trends
+* Churn risk distribution
+* Player activity
+* Individual player risk analysis
+* Churn probability
+* Model explanations
 
 The dashboard will provide an easy-to-understand interface for interpreting the machine learning results.
 
@@ -523,19 +521,19 @@ The dashboard will provide an easy-to-understand interface for interpreting the 
 
 ## 🛠️ Technologies Used
 
-| Technology | Purpose |
-|---|---|
-| Python | Programming language |
-| Pandas | Data manipulation |
-| NumPy | Numerical computation |
-| Scikit-learn | Machine learning |
-| Matplotlib | Data visualization |
-| Seaborn | Data visualization |
-| Joblib | Model serialization |
-| Pytest | Automated testing |
-| Git | Version control |
-| GitHub | Repository hosting |
-| VS Code | Development environment |
+| Technology   | Purpose                 |
+| ------------ | ----------------------- |
+| Python       | Programming language    |
+| Pandas       | Data manipulation       |
+| NumPy        | Numerical computation   |
+| Scikit-learn | Machine learning        |
+| Matplotlib   | Data visualization      |
+| Seaborn      | Data visualization      |
+| Joblib       | Model serialization     |
+| Pytest       | Automated testing       |
+| Git          | Version control         |
+| GitHub       | Repository hosting      |
+| VS Code      | Development environment |
 
 ---
 
@@ -545,18 +543,18 @@ The project follows a feature-branch development workflow.
 
 Branches used during development include:
 
-- `main`
-- `feature/project-setup`
-- `feature/data-preprocessing`
-- `feature/feature-engineering`
+* `main`
+* `feature/project-setup`
+* `feature/data-preprocessing`
+* `feature/feature-engineering`
 
 Additional development branches can be created for future functionality:
 
-- `feature/model-training`
-- `feature/model-evaluation`
-- `feature/prediction`
-- `feature/testing`
-- `feature/dashboard`
+* `feature/model-training`
+* `feature/model-evaluation`
+* `feature/prediction`
+* `feature/testing`
+* `feature/dashboard`
 
 This workflow keeps individual features isolated and makes the development history easier to understand.
 
@@ -568,13 +566,13 @@ Meaningful commit messages are used throughout the project.
 
 Examples:
 
-- `chore: initialize project structure`
-- `feat: add data preprocessing pipeline`
-- `feat: implement feature engineering`
-- `feat: add model training pipeline`
-- `feat: add model evaluation`
-- `test: add preprocessing tests`
-- `docs: update README`
+* `chore: initialize project structure`
+* `feat: add data preprocessing pipeline`
+* `feat: implement feature engineering`
+* `feat: add model training pipeline`
+* `feat: add model evaluation`
+* `test: add preprocessing tests`
+* `docs: update README`
 
 The commit history follows a conventional style to make changes clear and maintainable.
 
@@ -584,30 +582,30 @@ The commit history follows a conventional style to make changes clear and mainta
 
 ### Completed
 
-- [x] Project structure created
-- [x] Dataset added
-- [x] Virtual environment configured
-- [x] Git repository initialized
-- [x] Feature branches created
-- [x] Data preprocessing implemented
-- [x] Feature engineering implemented
-- [x] Model training pipeline implemented
-- [x] Multiple ML models implemented
-- [x] Model evaluation implemented
-- [x] Prediction module implemented
-- [x] Automated tests added
-- [x] README documentation created
-- [x] GitHub repository created
+* [x] Project structure created
+* [x] Dataset added
+* [x] Virtual environment configured
+* [x] Git repository initialized
+* [x] Feature branches created
+* [x] Data preprocessing implemented
+* [x] Feature engineering implemented
+* [x] Model training pipeline implemented
+* [x] Multiple ML models implemented
+* [x] Model evaluation implemented
+* [x] Prediction module implemented
+* [x] Automated tests added
+* [x] README documentation created
+* [x] GitHub repository created
 
 ### Planned
 
-- [ ] Interactive Streamlit dashboard
-- [ ] SHAP model explainability
-- [ ] Advanced visualizations
-- [ ] Hyperparameter optimization
-- [ ] MLflow experiment tracking
-- [ ] API deployment
-- [ ] Cloud deployment
+* [ ] Interactive Streamlit dashboard
+* [ ] SHAP model explainability
+* [ ] Advanced visualizations
+* [ ] Hyperparameter optimization
+* [ ] MLflow experiment tracking
+* [ ] API deployment
+* [ ] Cloud deployment
 
 ---
 
@@ -615,22 +613,22 @@ The commit history follows a conventional style to make changes clear and mainta
 
 This project demonstrates practical understanding of:
 
-- Supervised Machine Learning
-- Binary Classification
-- Data Preprocessing
-- Missing Value Handling
-- Feature Engineering
-- Feature Selection
-- Target Leakage
-- Train/Test Splitting
-- Model Comparison
-- Model Evaluation
-- Pipeline Construction
-- Automated Testing
-- Modular Programming
-- Git and GitHub
-- Feature Branch Development
-- ML Project Organization
+* Supervised Machine Learning
+* Binary Classification
+* Data Preprocessing
+* Missing Value Handling
+* Feature Engineering
+* Feature Selection
+* Target Leakage
+* Train/Test Splitting
+* Model Comparison
+* Model Evaluation
+* Pipeline Construction
+* Automated Testing
+* Modular Programming
+* Git and GitHub
+* Feature Branch Development
+* ML Project Organization
 
 ---
 
@@ -638,5 +636,5 @@ This project demonstrates practical understanding of:
 
 **Rudresh Fadate**
 
-MSc Data Science  
+MSc Data Science
 Goa University
