@@ -637,4 +637,5 @@ This project demonstrates practical understanding of:
 **Rudresh Fadate**
 
 MSc Data Science
+Goa Business School
 Goa University
