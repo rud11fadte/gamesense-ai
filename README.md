@@ -113,6 +113,20 @@ The dataset also contains missing values in several behavioral telemetry feature
 
 These missing values can occur naturally when a player has no recorded activity during a particular period.
 
+### Data Quality Considerations
+
+Before model training, the dataset is checked for missing values, irrelevant identifiers, and features that do not provide useful predictive information.
+
+The preprocessing stage ensures that:
+
+* Missing numerical values are handled using median imputation.
+* Missing categorical values are handled using most-frequent-value imputation.
+* Player identifiers are excluded from model training.
+* Constant features are removed.
+* Categorical features are encoded before training.
+
+These steps help produce a cleaner and more reliable dataset for the machine learning pipeline.
+
 ---
 
 ## ⚙️ Data Preprocessing
@@ -282,32 +296,35 @@ Used to visualize:
 
 The GameSense AI pipeline follows this architecture:
 
+```text
 Player Telemetry
-↓
+        ↓
 Raw Dataset (CSV)
-↓
+        ↓
 Data Preprocessing
-↓
+        ↓
 Feature Engineering
-↓
+        ↓
 Train/Test Split
-↓
+        ↓
 Logistic Regression + Random Forest + Gradient Boosting
-↓
+        ↓
 Model Evaluation
-↓
+        ↓
 Best Performing Model
-↓
+        ↓
 Prediction Pipeline
-↓
+        ↓
 Churn Probability
-↓
+        ↓
 Low / Medium / High Risk
+```
 
 ---
 
 ## 📁 Project Structure
 
+```text
 gamesense-ai/
 │
 ├── data/
@@ -323,7 +340,7 @@ gamesense-ai/
 ├── notebooks/
 │
 ├── src/
-│   ├── **init**.py
+│   ├── __init__.py
 │   ├── data_preprocessing.py
 │   ├── feature_engineering.py
 │   ├── train.py
@@ -331,12 +348,13 @@ gamesense-ai/
 │   └── predict.py
 │
 ├── tests/
-│   ├── **init**.py
+│   ├── __init__.py
 │   └── test_preprocessing.py
 │
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+```
 
 ---
 
@@ -371,7 +389,9 @@ The tests verify:
 
 Run the tests using:
 
-`pytest`
+```bash
+pytest
+```
 
 ---
 
@@ -379,29 +399,41 @@ Run the tests using:
 
 ### 1. Clone the Repository
 
-`git clone https://github.com/rud11fadte/gamesense-ai.git`
+```bash
+git clone https://github.com/rud11fadte/gamesense-ai.git
+```
 
 Move into the project directory:
 
-`cd gamesense-ai`
+```bash
+cd gamesense-ai
+```
 
 ### 2. Create a Virtual Environment
 
-`python -m venv .venv`
+```bash
+python -m venv .venv
+```
 
 ### 3. Activate the Virtual Environment
 
 On Windows PowerShell:
 
-`.venv\Scripts\Activate.ps1`
+```powershell
+.venv\Scripts\Activate.ps1
+```
 
 ### 4. Install Dependencies
 
-`pip install -r requirements.txt`
+```bash
+pip install -r requirements.txt
+```
 
 ### 5. Train the Models
 
-`python src/train.py`
+```bash
+python src/train.py
+```
 
 The training pipeline will:
 
@@ -416,7 +448,9 @@ The training pipeline will:
 
 ### 6. Evaluate the Best Model
 
-`python src/evaluate.py`
+```bash
+python src/evaluate.py
+```
 
 This generates:
 
@@ -426,7 +460,9 @@ This generates:
 
 ### 7. Run Automated Tests
 
-`pytest`
+```bash
+pytest
+```
 
 ---
 
@@ -438,13 +474,15 @@ GameSense AI can potentially be used by gaming companies for several application
 
 Identify players who are likely to stop playing.
 
+```text
 Player Behavior
-↓
+      ↓
 ML Model
-↓
+      ↓
 High Churn Risk
-↓
+      ↓
 Retention Campaign
+```
 
 Gaming companies could then provide targeted:
 
@@ -558,6 +596,8 @@ Additional development branches can be created for future functionality:
 
 This workflow keeps individual features isolated and makes the development history easier to understand.
 
+For collaborative development, contributors create feature branches, make changes, commit their work, synchronize with the remote repository, and merge completed features into the main development branch.
+
 ---
 
 ## 📝 Commit Convention
@@ -637,4 +677,5 @@ This project demonstrates practical understanding of:
 **Rudresh Fadate**
 
 MSc Data Science
+
 Goa University
