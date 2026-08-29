@@ -683,3 +683,5 @@ Goa Business School
 Goa University
 
 Git rebase workflow demonstration.
+
+Git operations practice.
